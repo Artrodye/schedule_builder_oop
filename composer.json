@@ -1,0 +1,24 @@
+{
+    "name": "myproject_schedule_oop/myproject_schedule_oop",
+    "version": "1.0",
+    "minimun-stability": "stable",
+    "authors": [{
+        "name": "Artrodye",
+        "email": "brylev_artemiy@mail.ru",
+        "role": "Developer"
+    }],
+    "require": {
+        "doctrine/orm": "^3",
+        "doctrine/dbal": "^4",
+        "symfony/cache": "^7",
+        "php-di/php-di": "@stable",
+        "vlucas/phpdotenv": "@stable",
+        "psr/container": "^2.0",
+        "slim/twig-view": "^3.4",
+        "twig/twig": "^3.10",
+        "twig/cssinliner-extra": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {"app\\": ""}
+    }
+}
