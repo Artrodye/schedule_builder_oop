@@ -19,7 +19,7 @@ class GroupService
     {
     }
 
-    public function htmlToPDF($html, $name)
+    public function htmlToPDF($html, $name): void
     {
         $dompdf = new Dompdf();
         $dompdf->loadHtml($html);
@@ -30,8 +30,8 @@ class GroupService
 
         $dompdf->stream($name . '.pdf');
 
-        $output = $dompdf->output();
-        file_put_contents('C:/Users/bryle/Downloads/' . $name . ".pdf", $output);
+//        $output = $dompdf->output();
+//        file_put_contents('C:/Users/bryle/Downloads/' . $name . ".pdf", $output);
     }
 
     public function getEventsForGroup(SafeGroupDTO $dto): array

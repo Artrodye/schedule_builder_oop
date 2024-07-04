@@ -46,8 +46,7 @@ class EventEntity
         joinColumns: [new ORM\JoinColumn(name:'event_id', referencedColumnName: 'id')],
         inverseJoinColumns: [new ORM\JoinColumn(name: 'group_id', referencedColumnName: 'id')]
     )]
-//    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id')]
-//    #[ORM\InverseJoinColumn(name: 'group_id', referencedColumnName: 'id')]
+
     private Collection $groups;
 
     public function __construct()
@@ -73,7 +72,7 @@ class EventEntity
         $result = [];
         foreach ($groups as $group) {
             $result[] = $group->getId();
-        } // TODO use array_map
+        }
         return $result;
     }
 

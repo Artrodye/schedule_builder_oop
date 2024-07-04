@@ -27,7 +27,6 @@ class GroupEntityRepository extends EntityRepository
             ->orderBy('events.beginTime', 'ASC')
             ->setParameter("groupId", $dto->id)
             ->getQuery();
-        $result = $query->getResult();
-        return $result;
+        return $query->getResult();
     }
 }

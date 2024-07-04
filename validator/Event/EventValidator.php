@@ -22,7 +22,14 @@ class EventValidator extends EventService
     public function validateEvent(SafeEventDTO $dto): true
     {
         $collection = [];
-        $rules = [EventTimeRoomRule::class, EventTimeTeacherRule::class, EventIssetGroupRule::class, EventDayNotSundayRule::class, EventIsManyGroupsRule::class, EventFreeGroupsRule::class];
+        $rules = [
+            EventTimeRoomRule::class,
+            EventTimeTeacherRule::class,
+            EventIssetGroupRule::class,
+            EventDayNotSundayRule::class,
+            EventIsManyGroupsRule::class,
+            EventFreeGroupsRule::class
+        ];
         foreach ($rules as $rule) {
             $result = $rule::validateRule($this->entityManager, $dto);
             if (is_string($result)) {

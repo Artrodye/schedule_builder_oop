@@ -21,16 +21,11 @@ class Router
         $method = $request->getQueryValue('method');
 
         try {
-            switch ($act) {
-                case 'group':
-                    $controller = new GroupController(new GroupService($entityManager));
-                    break;
-                case 'event':
-                    $controller = new EventController(new EventService($entityManager));
-                    break;
-                default:
-                    throw new ApplicationException(404, 'роут не найден');
-            }
+            $controller = match ($act) {
+                'group' => new GroupController(new GroupService($entityManager)),
+                'event' => new EventController(new EventService($entityManager)),
+                default => throw new ApplicationException('роут не найден', 404),
+            };
             $result = $controller->$method($request);
             return new JsonResponse(200, ['success' => true, 'rows' => $result]);
         } catch (ApplicationException $exception) {
