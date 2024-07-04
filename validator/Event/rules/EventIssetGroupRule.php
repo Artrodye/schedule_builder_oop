@@ -3,7 +3,6 @@
 namespace app\validator\Event\rules;
 
 use app\dto\Event\SafeEventDTO;
-use app\entity\EventEntity;
 use app\entity\GroupEntity;
 use Doctrine\ORM\EntityManager;
 

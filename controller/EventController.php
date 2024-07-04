@@ -2,6 +2,7 @@
 
 namespace app\Controller;
 
+use app\Container\Container;
 use app\dto\Event\SafeEventDTO;
 use app\http\Request;
 use app\Service\EventService;
@@ -23,7 +24,7 @@ readonly class EventController
 
     public function create(Request $request): void
     {
-        $dto = new SafeEventDTO();
+        $dto = (new Container())->get(SafeEventDTO::class);
         $dto->name = $request->getBodyValue('name');
         $dto->beginTime = \DateTime::createFromFormat('Y-m-d H:i:s', $request->getBodyValue('beginTime'))->format('Y-m-d H:i:s');
         $dto->room = $request->getBodyValue('room');
@@ -43,7 +44,7 @@ readonly class EventController
 
     public function update(Request $request): void
     {
-        $dto = new SafeEventDTO();
+        $dto = (new Container())->get(SafeEventDTO::class);
         $dto->id = $request->getBodyValue('id');
         $dto->name = $request->getBodyValue('name');
         $dto->beginTime = \DateTime::createFromFormat('Y-m-d H:i:s', $request->getBodyValue('beginTime'))->format('Y-m-d H:i:s');

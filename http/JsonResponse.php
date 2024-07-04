@@ -2,8 +2,6 @@
 
 namespace app\http;
 
-use app\ApplicationException\ApplicationException;
-
 class JsonResponse
 {
 

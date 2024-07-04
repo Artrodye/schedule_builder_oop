@@ -5,6 +5,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 function getEntityManager(): EntityManager

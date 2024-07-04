@@ -2,8 +2,6 @@
 
 namespace app\http;
 
-use app\http\JsonResponse;
-
 class ResponseWriter
 {
     public function write(JsonResponse $response): void

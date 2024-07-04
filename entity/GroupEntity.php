@@ -2,6 +2,7 @@
 
 namespace app\Entity;
 
+use app\repository\GroupEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -12,7 +13,7 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\Table;
 
-#[Entity]
+#[Entity(repositoryClass: GroupEntityRepository::class)]
 #[Table('groups')]
 class GroupEntity
 {

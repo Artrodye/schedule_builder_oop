@@ -63,7 +63,7 @@ class EventService
                     $this->entityManager->flush();
 
                     $beginTime = \DateTime::createFromFormat("Y-m-d H:i:s", $dto->beginTime);
-                    $beginTime->add(new DateInterval('P' . "1" . $period));
+                    $beginTime->add(new DateInterval('P' . $period));
                     $dto->beginTime = $beginTime->format("Y-m-d H:i:s");
                 }
             }
@@ -81,7 +81,7 @@ class EventService
     {
         $event = $this->entityManager->getRepository(EventEntity::class)->find($id);
         if (is_null($event)) {
-            throw new ApplicationException("Данной группы не существует", 400);
+            throw new ApplicationException("Данного события не существует", 400);
         }
         $this->entityManager->remove($event);
         $this->entityManager->flush();
@@ -90,11 +90,11 @@ class EventService
     public function update(SafeEventDTO $dto)
     {
         try {
+            $event = $this->entityManager->getRepository(EventEntity::class)->find($dto->id);
+            if (is_null($event)) {
+                throw new ApplicationException("Данного события не существует", 400);
+            }
             if ((new EventValidator($this->entityManager))->validateEvent($dto)) {
-                $event = $this->entityManager->getRepository(EventEntity::class)->find($dto->id);
-                if (is_null($event)) {
-                    throw new ApplicationException("Данной группы не существует", 400);
-                }
                 $event->setName($dto->name);
                 $event->setBeginTime($dto->beginTime);
                 $event->setRoom($dto->room);

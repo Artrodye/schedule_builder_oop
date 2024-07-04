@@ -2,6 +2,7 @@
 
 namespace app\Controller;
 
+use app\Container\Container;
 use app\dto\Group\SafeGroupDTO;
 use app\http\Request;
 use app\Service\GroupService;
@@ -16,7 +17,7 @@ class GroupController
 
     public function getEventsForGroup(Request $request): array
     {
-        $dto = new SafeGroupDTO();
+        $dto = (new Container())->get(SafeGroupDTO::class);
         $dto->id = $request->getBodyValue('id');
         return $this->groupService->getEventsForGroup($dto);
     }
@@ -32,7 +33,7 @@ class GroupController
 
     public function create(Request $request): void
     {
-        $dto = new SafeGroupDTO();
+        $dto = (new Container())->get(SafeGroupDTO::class);
         $dto->id = $request->getBodyValue('id');
         $dto->name = $request->getBodyValue('name');
         $this->groupService->create($dto);
@@ -45,7 +46,7 @@ class GroupController
 
     public function update(Request $request): void
     {
-        $dto = new SafeGroupDTO();
+        $dto = (new Container())->get(SafeGroupDTO::class);
         $dto->id = $request->getBodyValue('id');
         $dto->name = $request->getBodyValue('name');
         $this->groupService->update($dto);

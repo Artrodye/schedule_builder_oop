@@ -4,8 +4,8 @@ namespace app\validator\Group;
 use app\ApplicationException\ApplicationException;
 use app\dto\Group\SafeGroupDTO;
 use app\Service\GroupService;
-use Doctrine\ORM\EntityManager;
 use app\validator\Group\rules\GroupNameRule;
+use Doctrine\ORM\EntityManager;
 
 class GroupValidator extends GroupService
 {

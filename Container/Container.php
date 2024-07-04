@@ -2,23 +2,16 @@
 
 namespace app\Container;
 
-use app\routerProvider\Router;
 use Psr\Container\ContainerInterface;
 
 class Container implements ContainerInterface
 {
     private array $classObjects = [];
-//    public function __construct()
-//    {
-//        $this->classObjects = [
-//            Router::class => fn() => new Router(),
-//        ];
-//    }
     public function get($id)
     {
         return
-            isset($this->objects[$id])
-                ? $this->objects[$id]()
+            isset($this->classObjects[$id])
+                ? $this->classObjects[$id]()
                 : $this->prepareObject($id);
     }
 
@@ -46,7 +39,6 @@ class Container implements ContainerInterface
             $argumentType = $argument->getType()->getName();
             $args[$argument->getName()] = $this->get($argumentType);
         }
-
         return new $class(...$args);
     }
 }

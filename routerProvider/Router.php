@@ -36,7 +36,6 @@ class Router
         } catch (ApplicationException $exception) {
             return new JsonResponse($exception->getCode(), ['success' => false, 'message' => $exception->getMessage()]);
         } catch (\Throwable $throwable) {
-            var_dump($throwable);
             return new JsonResponse(500, ['success' => false, 'message' => 'Возникла ошибка при выполнении']);
         }
     }
