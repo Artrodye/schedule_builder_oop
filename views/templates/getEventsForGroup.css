@@ -1,0 +1,16 @@
+/* внешние границы таблицы серого цвета толщиной 1px */
+table {
+    border: 1px solid #000000;
+}
+/* границы ячеек первого ряда таблицы */
+th {
+    border: 1px solid #000000;
+}
+/* границы ячеек тела таблицы */
+td {
+    border: 1px solid #000000;
+}
+
+body {
+    font-family: DejaVu Sans, serif;
+}

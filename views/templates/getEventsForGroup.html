@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% apply inline_css (source("getEventsForGroup.css")) %}
+<html lang="ru">
+<head>
+    <title>Events For Group</title>
+</head>
+<body>
+<h2>Events For Group {{ groupName }}</h2>
+<div id="Events">
+    {% for event in events %}
+        <table class="event">
+            <tr><th>{{ event.beginTime }}</th></tr>
+            <tr><td>{{ event.name }}</td></tr>
+            <tr><td>{{ event.teacher }}</td></tr>
+            <tr><td>{{ event.room }}</td></tr>
+        </table>
+    <br>
+    {% endfor %}
+</div>
+</body>
+</html>
+{% endapply %}
