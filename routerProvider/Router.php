@@ -3,8 +3,8 @@
 namespace app\routerProvider;
 
 use app\ApplicationException\ApplicationException;
-use app\Controller\EventController;
-use app\Controller\GroupController;
+use app\controller\EventController;
+use app\controller\GroupController;
 use app\http\JsonResponse;
 use app\http\Request;
 use app\Service\EventService;

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Controller;
+namespace app\controller;
 
 use app\Container\Container;
 use app\dto\Event\SafeEventDTO;

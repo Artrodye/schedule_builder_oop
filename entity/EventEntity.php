@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Entity;
+namespace app\entity;
 
 use app\Repository\EventEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;

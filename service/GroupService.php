@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Service;
+namespace app\service;
 
 use app\ApplicationException\ApplicationException;
 use app\dto\Group\SafeGroupDTO;
